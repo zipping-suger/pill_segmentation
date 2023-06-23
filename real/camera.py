@@ -5,11 +5,11 @@ import numpy as np
 
 class Camera(object):
 
-    def __init__(self, use_filter=True):
+    def __init__(self, im_height=720, im_width=1280, use_filter=True):
 
         # Data options (change me)
-        self.im_height = 720
-        self.im_width = 1280
+        self.im_height = im_height
+        self.im_width = im_width
         self.use_filter = use_filter
         self.intrinsics = None
 
@@ -50,7 +50,8 @@ class Camera(object):
         # Get intrinsics
         profile = self.cfg.get_stream(rs.stream.color)
         intr = profile.as_video_stream_profile().get_intrinsics()
-        print("Intrinsics:", intr)  # Intrinsics: [ 640x360  p[314.02 181.295]  f[456.277 455.928]  Inverse Brown Conrady [0 0 0 0 0] ]
+        print("Intrinsics:",
+              intr)  # Intrinsics: [ 640x360  p[314.02 181.295]  f[456.277 455.928]  Inverse Brown Conrady [0 0 0 0 0] ]
         self.intrinsics = np.array([[intr.fx, 0, intr.ppx],
                                     [0, intr.fy, intr.ppy],
                                     [0, 0, 1]])
@@ -78,10 +79,10 @@ class Camera(object):
             frame = self.disparity_to_depth.process(frame)
             frame = self.hole_filling.process(frame)
             # depth_img = np.asanyarray(self.colorizer.colorize(frame).get_data())   # debug
-            depth_img = np.asanyarray(frame.get_data())   # release
+            depth_img = np.asanyarray(frame.get_data())  # release
         else:
             # depth_img = np.asanyarray(self.colorizer.colorize(depth_frame).get_data())  # debug
-            depth_img = np.asanyarray(depth_frame.get_data())   # release
+            depth_img = np.asanyarray(depth_frame.get_data())  # release
         color_img = np.asanyarray(color_frame.get_data())
 
         return color_img, depth_img
