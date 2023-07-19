@@ -1,15 +1,11 @@
-import sys
-
 import cv2
 import time
 import torch
-from PIL import Image
 import matplotlib.pyplot as plt
-from segment_anything import sam_model_registry, SamAutomaticMaskGenerator, SamPredictor
-from real.camera import Camera
-from utils import cuts_out, show_anns, visualize_sam, register_shape_db, register_color_db, register_hog_db, \
-    size_fileter, \
-    color_filter, create_color_list, shape_filter, hog_filter, pill_identify
+from segment_anything import sam_model_registry, SamAutomaticMaskGenerator
+from utils import cuts_out, visualize_sam, register_shape_db, register_color_hist, \
+    size_fileter, register_db_img, \
+    shape_filter, pill_identify, create_color_list
 
 # -- coding: utf-8 --
 
@@ -53,6 +49,11 @@ mask_generator = SamAutomaticMaskGenerator(
 
 # color list for visualization
 color_list = create_color_list(15)
+
+# register database image
+img_list = register_db_img()
+# register color hist
+img_hist_list = register_color_hist()
 
 # # Initialize HIKVISION Camera
 SDKVersion = MvCamera.MV_CC_GetSDKVersion()
@@ -170,8 +171,6 @@ data_buf = (c_ubyte * nPayloadSize)()
 
 # Load registered shape and color database
 shape_db = register_shape_db()
-color_db = register_color_db()
-hog_db = register_hog_db()
 
 
 def get_img(cam, data_buf, nPayloadSize, stDeviceList):
@@ -237,7 +236,7 @@ while stop:
     # cuts_out(image, masks, save_dir='raw')
     masks = shape_filter(masks, shape_db, threshold=0.1)
     cuts_out(image, masks, save_dir='cuts_out')
-    masks = pill_identify(masks, cost=[0.20845539, 0.23003319, 0.23198423, 0.17678003, 0.15274716])
+    masks = pill_identify(masks, cost=[0.23003319, 0.23198423, 0.17678003, 0.15274716], img_hist_list = img_hist_list, img_list=img_list) # ncc = 0.20845539,
     et = time.time()
     print("Time of processing:", (et - st))
     # print("processing...")

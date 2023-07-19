@@ -1,5 +1,6 @@
 import os
 import cv2
+import time
 import numpy as np
 import matplotlib.pyplot as plt
 import numpy as np
@@ -48,6 +49,7 @@ def rotate_image(image):
 
     # return the rotated image
     return rotated, rotated_opp
+
 
 def batch_resize(height, width, data_path, output_dir):
     for image_path in os.listdir(data_path):
@@ -126,6 +128,29 @@ def show_anns(anns):
         # Draw the contours in white color
         cv2.drawContours(img, contours, -1, (0, 0, 1), 6)
         ax.imshow(np.dstack((img, m * 0.5)))
+
+
+def register_db_img():
+    img_list = []
+    for k in range(7):
+        tmp = []
+        for j in range(1):
+            img, _ = rotate_image(cv2.imread('database/pill_db/p{}_{}.jpg'.format(k, j)))
+            tmp.append(img)
+        img_list.append(tmp)
+    return img_list
+
+
+def register_color_hist():
+    img_hist_list = []
+    for k in range(7):
+        tmp = []
+        for j in range(1):
+            img, _ = rotate_image(cv2.imread('database/pill_db/p{}_{}.jpg'.format(k, j)))
+            img_hist = get_3D_hsv_hist(img)
+            tmp.append(img_hist)
+        img_hist_list.append(tmp)
+    return img_hist_list
 
 
 def register_shape_db():
@@ -274,7 +299,7 @@ def hog_filter(size_filtered_mask, hog_db, threshold):
     return hog_score_masks
 
 
-def pill_identify(size_filtered_mask, cost):
+def pill_identify(size_filtered_mask, cost, img_hist_list, img_list):
     registered_masks = []
     i = 0
     for ann in size_filtered_mask:
@@ -297,7 +322,7 @@ def pill_identify(size_filtered_mask, cost):
         # get mask size
         temp1_size = get_size(temp1)
 
-        temp_ncc = []
+        # temp_ncc = []
         temp_color = []
         temp_hog = []
         temp_hu = []
@@ -306,43 +331,64 @@ def pill_identify(size_filtered_mask, cost):
         for k in range(7):
             ncc, color, hog, hu, size = 0, 0, 0, 0, 0
             for j in range(1):
-                img, _ = rotate_image(cv2.imread('database/pill_db/p{}_{}.jpg'.format(k, j)))
+                img = img_list[k][j]
+                # st = time.time()
+                # img, _ = rotate_image(cv2.imread('database/pill_db/p{}_{}.jpg'.format(k, j)))
+                # et = time.time()
+                # print("image preprocessing", et - st)
 
-                # NCC score
-                ncc_1 = cv2.matchTemplate(img, temp1, cv2.TM_CCORR_NORMED)
-                ncc_2 = cv2.matchTemplate(img, temp2, cv2.TM_CCORR_NORMED)
-                ncc += (1 - max(ncc_1, ncc_2)[0][0])
+                # # NCC score
+                # # st = time.time()
+                # ncc_1 = cv2.matchTemplate(img, temp1, cv2.TM_CCORR_NORMED)
+                # ncc_2 = cv2.matchTemplate(img, temp2, cv2.TM_CCORR_NORMED)
+                # ncc += (1 - max(ncc_1, ncc_2)[0][0])
+                # # et = time.time()
+                # # print("NCC", et - st)
 
                 # Color histgram difference (normarlized)
-                img_hist = get_3D_hsv_hist(img)
+                st = time.time()
+                img_hist = img_hist_list[k][j]
                 color_1 = compare_hist(img_hist, temp1_hist)
                 color_2 = compare_hist(img_hist, temp2_hist)
                 color += (min(color_1, color_2))
+                et = time.time()
+                print("Color", et - st)
 
                 # HoG
+                # st = time.time()
                 img_hog = get_hog_feature(img)
                 hog_1 = compare_hist(img_hog, temp1_hog)
                 hog_2 = compare_hist(img_hog, temp2_hog)
                 hog += (min(hog_1, hog_2))
+                # et = time.time()
+                # print("HoG", et-st)
 
                 # Hu momentum
+                # st = time.time()
                 img_mask = get_mask(img)
                 hu_1 = cv2.matchShapes(img_mask, temp1_mask, 1, 0.0)
                 hu_2 = cv2.matchShapes(img_mask, temp2_mask, 1, 0.0)
                 hu += (min(hu_1, hu_2))
+                # et = time.time()
+                # print("Hu", et - st)
 
                 # Size difference
+                # st = time.time()
                 img_size = get_size(img)
                 size_diff = abs(int(img_size) - int(temp1_size))
                 size += (size_diff)
+                # et = time.time()
+                # print("Size", et - st)
 
-            temp_ncc.append(ncc)
+            # temp_ncc.append(ncc)
             temp_color.append(color)
             temp_hog.append(hog)
             temp_hu.append(hu)
             temp_size.append(size)
 
-        score_list = normalize_list(temp_ncc) * cost[0] + normalize_list(temp_color) * cost[1] + normalize_list(temp_hog) * cost[2] + normalize_list(temp_hu) * cost[3] + normalize_list(temp_size) * cost[4]
+        # score_list = normalize_list(temp_ncc) * cost[0] + normalize_list(temp_color) * cost[1] + normalize_list(temp_hog) * cost[2] + normalize_list(temp_hu) * cost[3] + normalize_list(temp_size) * cost[4]
+        score_list = normalize_list(temp_color) * cost[0] + normalize_list(
+            temp_hog) * cost[1] + normalize_list(temp_hu) * cost[2] + normalize_list(temp_size) * cost[3]
         # print(score_list)
         score_list = score_list.tolist()
 
