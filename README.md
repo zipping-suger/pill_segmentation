@@ -34,4 +34,4 @@
 
 1. Press 'space' for updating the segmentation. Press 'q' to quit. 
 
-_For more information, please see_this [website](https://respected-bonobo-427.notion.site/Pill-Segmentation-3f387c40fc964004b357cac9261e744d?pvs=4)
+_For more information, please see_this [website](https://respected-bonobo-427.notion.site/Pill-Segmentation-3f387c40fc964004b357cac9261e744d?pvs=4)_
