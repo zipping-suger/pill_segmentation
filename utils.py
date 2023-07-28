@@ -539,6 +539,8 @@ def cuts_out(img, anns, save_dir):
 
 
 if "__name__" == "__main__":
+
+    # example: using batch_resize to resize multiple images
     raw_image_path = './dataset/pills'
     output_path = './dataset/pills_resized_256_192'
 

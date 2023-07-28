@@ -5,10 +5,82 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="31b0a291-f369-4e7e-8f0f-35f4dd679561" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/color/c0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/color/c1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/color/c2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/color/c3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/color/c4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p0_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p0_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p0_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p0_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p0_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p1_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p1_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p1_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p1_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p1_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p2_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p2_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p2_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p2_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p2_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p3_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p3_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p3_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p3_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p3_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p4_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p4_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p4_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p4_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p4_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p5_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p5_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p5_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p5_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p5_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p6_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p6_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p6_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p6_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p6_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p7_0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p7_1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p7_2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p7_3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/pill_db/p7_4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s0.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s1.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s10.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s11.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s12.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s13.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s14.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s15.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s16.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s17.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s18.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s19.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s20.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s21.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s3.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s4.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s5.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s6.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s7.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s8.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/database/shape/s9.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docs/images/demo.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pca_template_matching.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/pca_template_matching.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/CV_model_test.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/CV_model_test.ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/feature_matching .ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/feature_matching .ipynb" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/onnx_model_example.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pca_template_matching.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/pca_template_matching.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pill_seg.py" beforeDir="false" afterPath="$PROJECT_DIR$/pill_seg.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/predictor_example.ipynb" beforeDir="false" afterPath="$PROJECT_DIR$/notebooks/predictor_example.ipynb" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/utils.py" beforeDir="false" afterPath="$PROJECT_DIR$/utils.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,22 +107,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/zippingsugar/Programs/pill_segmentation&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;/home/zippingsugar/Programs/visual-affordance-pushing/robot_org.py&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "last_opened_file_path": "/home/zippingsugar/Programs/pill_segmentation",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "two.files.diff.last.used.file": "/home/zippingsugar/Programs/visual-affordance-pushing/robot_org.py"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/MVS/MvImport" />
       <recent name="$PROJECT_DIR$/MVS" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/docs/images" />
+      <recent name="$PROJECT_DIR$/notebooks" />
       <recent name="$PROJECT_DIR$" />
     </key>
   </component>
@@ -228,13 +302,22 @@
       <option name="project" value="LOCAL" />
       <updated>1687508484945</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Update feature combination">
+      <option name="closed" value="true" />
+      <created>1689746864187</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1689746864187</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Final Update" />
     <MESSAGE value="Random sampling" />
     <MESSAGE value="Add lots of features" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add lots of features" />
+    <MESSAGE value="Update feature combination" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update feature combination" />
   </component>
 </project>

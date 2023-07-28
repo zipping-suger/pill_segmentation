@@ -62,7 +62,7 @@ print("SDKVersion[0x%x]" % SDKVersion)
 deviceList = MV_CC_DEVICE_INFO_LIST()
 tlayerType = MV_GIGE_DEVICE | MV_USB_DEVICE
 
-# ch:枚举设备 | en:Enum device
+# num device
 ret = MvCamera.MV_CC_EnumDevices(tlayerType, deviceList)
 if ret != 0:
     print("enum devices fail! ret[0x%x]" % ret)
@@ -114,10 +114,10 @@ if int(nConnectionNum) >= deviceList.nDeviceNum:
     print("intput error!")
     sys.exit()
 
-# ch:创建相机实例 | en:Creat Camera Object
+# Creat Camera Object
 cam = MvCamera()
 
-# ch:选择设备并创建句柄| en:Select device and create handle
+# Select device and create handle
 stDeviceList = cast(deviceList.pDeviceInfo[int(nConnectionNum)], POINTER(MV_CC_DEVICE_INFO)).contents
 
 ret = cam.MV_CC_CreateHandle(stDeviceList)
@@ -125,13 +125,13 @@ if ret != 0:
     print("create handle fail! ret[0x%x]" % ret)
     sys.exit()
 
-# ch:打开设备 | en:Open device
+# Open device
 ret = cam.MV_CC_OpenDevice(MV_ACCESS_Exclusive, 0)
 if ret != 0:
     print("open device fail! ret[0x%x]" % ret)
     sys.exit()
 
-# ch:探测网络最佳包大小(只对GigE相机有效) | en:Detection network optimal package size(It only works for the GigE camera)
+# Detection network optimal package size(It only works for the GigE camera)
 if stDeviceList.nTLayerType == MV_GIGE_DEVICE:
     nPacketSize = cam.MV_CC_GetOptimalPacketSize()
     if int(nPacketSize) > 0:
@@ -141,13 +141,13 @@ if stDeviceList.nTLayerType == MV_GIGE_DEVICE:
     else:
         print("Warning: Get Packet Size fail! ret[0x%x]" % nPacketSize)
 
-# ch:设置触发模式为off | en:Set trigger mode as off
+# Set trigger mode as off
 ret = cam.MV_CC_SetEnumValue("TriggerMode", MV_TRIGGER_MODE_OFF)
 if ret != 0:
     print("set trigger mode fail! ret[0x%x]" % ret)
     sys.exit()
 
-# ch:获取数据包大小 | en:Get payload size
+# Get payload size
 stParam = MVCC_INTVALUE()
 memset(byref(stParam), 0, sizeof(MVCC_INTVALUE))
 
@@ -157,7 +157,7 @@ if ret != 0:
     sys.exit()
 nPayloadSize = stParam.nCurValue
 
-# ch:开始取流 | en:Start grab image
+# Start grab image
 ret = cam.MV_CC_StartGrabbing()
 if ret != 0:
     print("start grabbing fail! ret[0x%x]" % ret)
@@ -173,6 +173,7 @@ data_buf = (c_ubyte * nPayloadSize)()
 shape_db = register_shape_db()
 
 
+# Get image from the device (save to file and read it)
 def get_img(cam, data_buf, nPayloadSize, stDeviceList):
     ret = cam.MV_CC_GetOneFrameTimeout(byref(data_buf), nPayloadSize, stDeviceList, 1000)
     if ret == 0:
@@ -207,6 +208,7 @@ def get_img(cam, data_buf, nPayloadSize, stDeviceList):
     print("Save Image succeed!")
 
 
+# quit event
 def on_key(event):
     global stop
     if event.key == " ":
@@ -220,7 +222,6 @@ def on_key(event):
 # # Display background image
 # bg.show()
 
-# Your code here
 stop = True  # initialize the loop state
 while stop:
     fig = plt.figure()
@@ -236,7 +237,8 @@ while stop:
     # cuts_out(image, masks, save_dir='raw')
     masks = shape_filter(masks, shape_db, threshold=0.1)
     cuts_out(image, masks, save_dir='cuts_out')
-    masks = pill_identify(masks, cost=[0.23003319, 0.23198423, 0.17678003, 0.15274716], img_hist_list = img_hist_list, img_list=img_list) # ncc = 0.20845539,
+    masks = pill_identify(masks, cost=[0.23003319, 0.23198423, 0.17678003, 0.15274716], img_hist_list=img_hist_list,
+                          img_list=img_list)  # ncc = 0.20845539,
     et = time.time()
     print("Time of processing:", (et - st))
     # print("processing...")
@@ -248,26 +250,26 @@ while stop:
     print("---------  Done  ---------")
     plt.show()
 
-# ch:停止取流 | en:Stop grab image
+# Stop grab image
 ret = cam.MV_CC_StopGrabbing()
 if ret != 0:
     print("stop grabbing fail! ret[0x%x]" % ret)
     del data_buf
     sys.exit()
 
-# ch:关闭设备 | Close device
+# Close device
 ret = cam.MV_CC_CloseDevice()
 if ret != 0:
     print("close deivce fail! ret[0x%x]" % ret)
     del data_buf
     sys.exit()
 
-# ch:销毁句柄 | Destroy handle
+# Destroy handle
 ret = cam.MV_CC_DestroyHandle()
 if ret != 0:
     print("destroy handle fail! ret[0x%x]" % ret)
     del data_buf
-    sys.exit()  
+    sys.exit()
 
 del data_buf
 
